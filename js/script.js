@@ -8,7 +8,7 @@ document.querySelector("#hamburger-menu").onclick = () => {
   navbarNav.classList.toggle("active");
 };
 
-// klik di luar sidebar untuk menghilangka nav
+// klik di luar sidebar untuk Menghilangkan Nav ya
 
 const hamburger = document.querySelector("#hamburger-menu");
 
