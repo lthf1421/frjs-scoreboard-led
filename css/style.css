@@ -441,3 +441,82 @@ footer .credit a {
     background-position: left;
   }
 }
+
+/* Catalogue css */
+
+/* Style for the page header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+header nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+header nav li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header nav li a:hover {
+  text-decoration: underline;
+}
+
+/* Style for the main content section */
+main {
+  margin: 20px;
+}
+
+section {
+  margin-top: 20px;
+}
+
+section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+li h3 {
+  margin-top: 0;
+}
+
+li p {
+  margin-bottom: 0;
+}
+
+/* Style for the footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
