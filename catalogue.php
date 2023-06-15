@@ -1,7 +1,14 @@
 <?php
   require "koneksi.php";
 
+  // get product based on query
+  if(isset($_GET['keyword'])){
+    $queryProduk = mysqli_query($con, "SELECT * FROM produk WHERE nama LIKE '%$_GET[keyword]%'");
+  }
+  // get product default
+  else{
   $queryProduk = mysqli_query($con, "SELECT id, nama, harga, foto, detail, ketersediaan_stok FROM produk");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +62,16 @@
     <main>
       <section id="catalogue" class="menu">
         <h2>Our<span> Product</span></h2> 
+        <div class="col-md-8 offset-md-2">
+          <form method="get">
+            <div class="input-group input-group-lg my-4">
+	            <input type="search" class="form-control" placeholder="Product Name" name="keyword">
+	            <button class="btn btn-primary text-white" type="submit">
+		            <span>Search</span>
+	            </button>
+            </div>
+          </form>
+        </div>
 
         <div class="row">
         <?php

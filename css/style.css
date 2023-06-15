@@ -85,6 +85,8 @@ body {
   display: none;
 }
 
+/* Search Bar Section */
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
@@ -358,11 +360,17 @@ footer .links a:hover {
 
 footer .credit {
   font-size: 0.8rem;
+  color: white;
 }
 
-footer .credit a {
-  color: var(--bg);
+footer .credit p {
+  color: white;
   font-weight: 700;
+}
+
+footer .credit p a {
+  color: white;
+  text-decoration: underline;
 }
 
 /* media queris */

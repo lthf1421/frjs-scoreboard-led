@@ -43,9 +43,11 @@
       </div>
 
       <div class="navbar-extra">
+        </form>
         <a href="catalogue.php" id="catalogue"
           ><i data-feather="book-open"></i
         ></a>
+        
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
     </nav>
