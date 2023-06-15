@@ -1,3 +1,9 @@
+<?php
+  require "koneksi.php";
+
+  $queryProduk = mysqli_query($con, "SELECT id, nama, harga, foto, detail, ketersediaan_stok FROM produk LIMIT 3");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,7 +43,7 @@
       </div>
 
       <div class="navbar-extra">
-        <a href="catalogue.html" id="catalogue"
+        <a href="catalogue.php" id="catalogue"
           ><i data-feather="book-open"></i
         ></a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
@@ -68,7 +74,7 @@
 
       <div class="row">
         <div class="about-img">
-          <img src="img/tentang-kami.jpg" alt="Tentang Kami" />
+          <img src="image/tentang-kami.jpg" alt="Tentang Kami" />
         </div>
         <div class="content">
           <h3>Kenapa memilih kami?</h3>
@@ -94,33 +100,33 @@
       <h2>Featured<span> Product</span></h2>
 
       <div class="row">
-        <div class="menu-card">
-          <img src="img/menu/sc.png" alt="Scoreboard Basket" />
-          <h3 class="menu-card-tittle">Score Board Basket</h3>
-          <p class="menu-card-desc">
-            Lorem ipsum dolor sit amet, consectetur adipisicing.
-          </p>
-          <p class="menu-card-price">IDR 14.000.000</p>
-        </div>
-        <div class="menu-card">
-          <img src="img/menu/sc.png" alt="Scoreboard Basket" />
-          <h3 class="menu-card-tittle">Score Board Basket</h3>
-          <p class="menu-card-desc">
-            Lorem ipsum dolor sit amet, consectetur adipisicing.
-          </p>
-          <p class="menu-card-price">IDR 14.000.000</p>
-        </div>
-        <div class="menu-card">
-          <img src="img/menu/sc.png" alt="Scoreboard Basket" />
-          <h3 class="menu-card-tittle">Score Board Basket</h3>
-          <p class="menu-card-desc">
-            Lorem ipsum dolor sit amet, consectetur adipisicing.
-          </p>
-          <p class="menu-card-price">IDR 14.000.000</p>
-        </div>
+        <?php
+          while($data = mysqli_fetch_array($queryProduk)){
+        ?>
+          <div class="menu-card">
+            <div class="image-box">
+              <img src="image/<?php echo $data['foto'];?>" alt="Scoreboard Basket" />
+            </div>
+            <h3 class="menu-card-tittle"><?php echo $data['nama']; ?></h3>
+            <p class="menu-card-desc crop">
+              <?php echo $data['detail']; ?>
+            </p>
+            <p class="menu-card-price">Rp <?php echo $data['harga']; ?></p>
+            <a href="">
+            <a href="#" class="cta">
+                  <?php echo $data['ketersediaan_stok'];?> 
+            </a>
+          </div>
+          <?php
+          }
+        ?>
       </div>
+        
+
+      </div>
+
       <div class="load-more">
-        <a href="catalogue.html" class="btn">Full Catalogue >>></a>
+        <a href="catalogue.php" class="btn">Full Catalogue >>></a>
       </div>
     </section>
 

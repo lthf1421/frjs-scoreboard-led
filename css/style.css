@@ -90,7 +90,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url("../img/header-bg (2).png");
+  background-image: url("../image/header-bg (2).png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -218,18 +218,26 @@ body {
 .menu .row {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   justify-content: center;
 }
 
 .menu-card {
   text-align: center;
+  padding-top: 1rem;
   padding-bottom: 4rem;
 }
 
 .menu .row .menu-card img {
   border-radius: 5%;
   width: 80%;
+  max-width: 250px;
+  max-height: 250px;
+  min-height: 250px;
+  min-width: 250px;
+  object-fit: contain;
+  object-position: center;
+  margin: 20px;
 }
 
 .menu .row .menu-card .menu-card-tittle {
@@ -237,9 +245,13 @@ body {
 }
 
 .menu .row .menu-card .menu-card-desc {
-  max-width: 23rem;
+  max-width: 20rem;
+  max-height: 6rem;
+  overflow: hidden;
 }
+
 .menu .row .menu-card .menu-card-price {
+  margin-bottom: 1rem;
   color: yellow;
 }
 
@@ -252,6 +264,16 @@ body {
   font-size: 1.3rem;
   font-weight: 700;
   color: yellow;
+}
+
+.menu .row .cta {
+  margin-top: 2rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  background-color: var(--primary);
 }
 /* Kontak section */
 
@@ -342,6 +364,7 @@ footer .credit a {
   color: var(--bg);
   font-weight: 700;
 }
+
 /* media queris */
 
 /* laptop */
