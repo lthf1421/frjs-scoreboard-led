@@ -51,7 +51,7 @@
                 </div>
                 <div>
                     <label for="harga">Harga</label>
-                    <input type="number" class="form-control" value="<?php echo $data['harga']; ?>"
+                    <input type="text" class="form-control" value="<?php echo $data['harga']; ?>"
                     name="harga" required>
                 </div>
                 <div>
@@ -147,7 +147,7 @@
                                         Produk berhasil diupdate                 
                                     </div>
 
-                                    <meta http-equiv="refresh" content="2; url=produk.php" />
+                                    <meta http-equiv="refresh" content="2"; url="adminpanel/produk.php"; />
 
                     <?php   
                                     }

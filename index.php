@@ -31,7 +31,7 @@
   <body>
     <!-- navbar start -->
     <nav class="navbar">
-      <a href="#" class="navbar-logo"
+      <a href="#" class="navbar-logo" title="Home"
         >FRJS<span> Scoreboard & LED display</span></a
       >
 
@@ -44,7 +44,7 @@
 
       <div class="navbar-extra">
         </form>
-        <a href="catalogue.php" id="catalogue"
+        <a href="catalogue.php" id="catalogue" title="See Full Catalogue"
           ><i data-feather="book-open"></i
         ></a>
         
@@ -60,10 +60,9 @@
       <main class="content">
         <h1>Custom <span>Scoreboard, Running Text & Jam Digital</span></h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusiantum,
-          enim.
+          Papan Skor Digital dengan banyak fitur untuk berbagai jenis cabang olahraga
         </p>
-        <a href="#" class="cta">Pesan Sekarang</a>
+        <a href="#contact" class="cta">Pesan Sekarang</a>
       </main>
     </section>
 
@@ -76,19 +75,17 @@
 
       <div class="row">
         <div class="about-img">
-          <img src="image/tentang-kami.jpg" alt="Tentang Kami" />
+          <img src="image/aboutus.png" alt="Tentang Kami" />
         </div>
         <div class="content">
           <h3>Kenapa memilih kami?</h3>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo,
-            voluptatum? Accusantium incidunt perferendis facilis laboriosam. Qui
-            quos autem consectetur corporis sequi tempore.
-          </p>
+            FRJS Scoreboard & LED Display adalah perusahaan terkemuka dalam memproduksi papan skor digital berkualitas tinggi untuk berbagai macam acara dan olahraga.
+            Kami bangga menyediakan solusi tampilan berkualitas tinggi yang memungkinkan penyelenggara acara dan tim olahraga untuk memberikan pengalaman yang tak terlupakan kepada penonton. 
+            Dengan fokus pada keandalan, kejelasan, dan kemudahan penggunaan, produk papan skor digital kami dirancang dengan mempertimbangkan kebutuhan pelanggan. 
+            Kami berkomitmen untuk memberikan layanan yang sangat baik dan solusi yang disesuaikan dengan kebutuhan unik setiap pelanggan.          </p>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo,
-            voluptatum? Accusantium incidunt perferendis facilis laboriosam. Qui
-            quos autem consectetur corporis sequi tempore
+            Jika Anda mencari solusi papan skor digital yang inovatif dan handal, jangan ragu untuk menghubungi tim kami. Kami siap membantu Anda dalam merencanakan dan mewujudkan tampilan yang spektakuler untuk acara atau tim olahraga Anda.
           </p>
         </div>
       </div>
@@ -115,20 +112,17 @@
             </p>
             <p class="menu-card-price">Rp <?php echo $data['harga']; ?></p>
             <a href="">
-            <a href="#" class="cta">
-                  <?php echo $data['ketersediaan_stok'];?> 
+            <a href="produk-detail.php?nama=<?php echo $data['nama'];?>" class="cta">
+                  See Details
             </a>
           </div>
           <?php
           }
         ?>
       </div>
-        
-
-      </div>
-
+      
       <div class="load-more">
-        <a href="catalogue.php" class="btn">Full Catalogue >>></a>
+        <a href="catalogue.php" class="btn"><<< Full Catalogue >>></a>
       </div>
     </section>
 
@@ -139,8 +133,7 @@
     <section id="contact" class="contact">
       <h2>Reach <span>Us</span></h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,
-        odit!
+        Kunjungi workshop kami pada alamat di bawah ini atau kirimkan pesan untuk konsultasi dan pemesanan produk!
       </p>
 
       <div class="row">
@@ -152,21 +145,53 @@
           class="map"
         ></iframe>
 
-        <form action="">
-          <div class="input-group">
-            <i data-feather="user"></i>
-            <input type="text" placeholder="nama" />
-          </div>
-          <div class="input-group">
-            <i data-feather="mail"></i>
-            <input type="text" placeholder="email" />
-          </div>
-          <div class="input-group">
-            <i data-feather="phone"></i>
-            <input type="text" placeholder="no hp" />
-          </div>
-          <button type="submit" class="btn">kirim pesan</button>
-        </form>
+        <style>
+        .whatsapp-button {
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 4px;
+          transition: background-color 0.3s ease;
+          margin-top: 25px;
+          font-size: 1.6em;
+        }
+
+        .whatsapp-button:hover {
+          background-color: #0056b3;
+        }
+      </style>
+
+      <form id="myForm" method="GET">
+        <div class="input-group">
+          <i data-feather="user"></i>
+          <input name="nama" type="text" placeholder="Nama" />
+        </div>
+        <div class="input-group">
+          <i data-feather="mail"></i>
+          <input name="pesan" type="text" placeholder="Ketik pesan disini" />
+        </div>
+        <?php
+          $nama = @$_GET['nama'];
+          $pesan = @$_GET['pesan'];
+        ?>
+        <a id="whatsappLink" class="whatsapp-button" href="#" target="_blank">Kirim pesan via WhatsApp</a>
+      </form>
+
+      <script>
+        document.getElementById("whatsappLink").addEventListener("click", function(event) {
+          event.preventDefault();
+
+          var nama = document.getElementsByName("nama")[0].value;
+          var pesan = document.getElementsByName("pesan")[0].value;
+          var encodedNama = encodeURIComponent(nama);
+          var encodedPesan = encodeURIComponent(pesan);
+
+          var whatsappURL = "https://wa.me/6287838137197?text=Halo%2C%20admin.%0ASaya%20" + encodedNama + ".%0A%0A" + encodedPesan;
+          window.open(whatsappURL, "_blank");
+        });
+      </script>
       </div>
     </section>
 

@@ -177,11 +177,20 @@ body {
 }
 
 .about .row .about-img {
-  flex: 1 1 45rem;
+  flex: 1 1 40rem;
 }
 
 .about .row .about-img img {
   width: 100%;
+}
+
+.about .row .about-img-dp img {
+  width: 80%;
+  transition: transform 0.3s ease;
+}
+
+.about .row .about-img-dp:hover img {
+  transform: scale(1.1);
 }
 
 .about .row .content {
@@ -201,11 +210,49 @@ body {
   line-height: 1.6;
 }
 
+.about .row .content .special p {
+  margin-bottom: 3rem;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  font-weight: 500; /* Make the text bold for paragraphs with the 'special' class */
+  color: yellow; /
+}
+
+.about .row .content .status p {
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  font-weight: 350; /* Make the text bold for paragraphs with the 'special' class */
+  color: rgb(144, 82, 216);
+  font-style: italic;
+}
+
+.about .row .content .cta {
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background-color: rgb(20, 161, 20);
+  margin-bottom: 10rem;
+} 
+
+.about .row .content .cta:hover {
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background-color: rgb(29, 224, 29);
+  margin-bottom: 10rem;
+} 
 /* Menu Section */
 
 .menu h2,
 .contact h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 .menu p,
 .contact p {
@@ -224,9 +271,32 @@ body {
   justify-content: center;
 }
 
+.menu .load-more {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu .load-more a {
+  margin-top: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  margin-bottom: 10rem;
+}
+
+.menu .load-more:hover a {
+  margin-top: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: rgb(144, 82, 216);;
+  margin-bottom: 10rem;
+}
+
+
 .menu-card {
   text-align: center;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
   padding-bottom: 4rem;
 }
 
@@ -239,7 +309,7 @@ body {
   min-width: 250px;
   object-fit: contain;
   object-position: center;
-  margin: 20px;
+  margin: 30px;
 }
 
 .menu .row .menu-card .menu-card-tittle {
@@ -257,16 +327,6 @@ body {
   color: yellow;
 }
 
-.menu .load-more {
-  text-align: center;
-}
-
-.menu .load-more .btn {
-  margin-top: 2rem;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: yellow;
-}
 
 .menu .row .cta {
   margin-top: 2rem;
@@ -277,6 +337,7 @@ body {
   color: white;
   background-color: var(--primary);
 }
+
 /* Kontak section */
 
 .contact .row {

@@ -183,7 +183,7 @@
                                     <td><?php echo $data['ketersediaan_stok']; ?></td>
                                         <td> 
                                             <a href="produk-detail.php?p=<?php echo $data['id']; ?>"
-                                            class="btn btn-info"><i class="fas fa-search"></i>
+                                            class="btn btn-info"><i class="fas fa-pen" title="Edit"></i>
                                             </a>
                                         </td>
                                 </tr>

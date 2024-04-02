@@ -1,14 +1,9 @@
 <?php
-  require "koneksi.php";
+require "koneksi.php";
 
-  // get product based on query
-  if(isset($_GET['keyword'])){
-    $queryProduk = mysqli_query($con, "SELECT * FROM produk WHERE nama LIKE '%$_GET[keyword]%'");
-  }
-  // get product default
-  else{
-  $queryProduk = mysqli_query($con, "SELECT id, nama, harga, foto, detail, ketersediaan_stok FROM produk");
-  }
+$nama = htmlspecialchars($_GET['nama']);
+$queryProduk = mysqli_query($con, "SELECT * FROM produk WHERE nama='$nama'");
+$produk = mysqli_fetch_array($queryProduk);
 ?>
 
 <!DOCTYPE html>
@@ -59,45 +54,53 @@
 
     <!-- navbar end -->
 
-    <main>
-      <section id="catalogue" class="menu">
-        <h2>Our<span> Product</span></h2> 
-        <div class="col-md-8 offset-md-2">
-          <form method="get">
-            <div class="input-group input-group-lg my-4">
-	            <input type="search" class="form-control" placeholder="Product Name" name="keyword">
-	            <button class="btn btn-primary text-white" type="submit">
-		            <span>Search</span>
-	            </button>
-            </div>
-          </form>
+  
+
+    <!-- detail produk -->
+    <section id="about" class="about">
+      <div class="row">
+        <div class="about-img-dp">
+          <img src="image/<?php echo $produk [ 'foto']; ?>" id="zoom-image" alt="Your Image" />
         </div>
 
-        <div class="row">
-        <?php
-          while($data = mysqli_fetch_array($queryProduk)){
-        ?>
-          <div class="menu-card">
-            <div class="image-box">
-              <img src="image/<?php echo $data['foto'];?>" alt="Scoreboard Basket" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('.about .row .about-img-dp').mousemove(function(e) {
+    var parentOffset = $(this).offset(); 
+    var relX = e.pageX - parentOffset.left;
+    var relY = e.pageY - parentOffset.top;
+
+    var imageWidth = $(this).find('img').width();
+    var imageHeight = $(this).find('img').height();
+
+    var xOffset = (relX / imageWidth) * 100;
+    var yOffset = (relY / imageHeight) * 100;
+
+    $(this).find('img').css({
+      'transform-origin': xOffset + '% ' + yOffset + '%'
+    });
+  });
+});
+</script>
+
+
+
+        <div class="content">
+          <h3><?php echo $produk['nama']; ?></h3>
+          <p> <?php echo $produk['detail']; ?></p>
+            <div class="status">
+              <p> <?php echo $produk['ketersediaan_stok'];?> </p>
             </div>
-            <h3 class="menu-card-tittle"><?php echo $data['nama']; ?></h3>
-            <a href="index.php#contact" class="btn white-text">
-                  <?php echo $data['ketersediaan_stok'];?> 
-            </a>
-            <p class="menu-card-price">Rp <?php echo $data['harga']; ?></p>           
-            <a href="produk-detail.php?nama=<?php echo $data['nama'];?>" class="cta">See Details
-          </a>
-          </div>
-          <?php
-          }
-        ?>
-        </div>
-
-      </section>
-
-      <!-- menu section end -->
-    </main>
+            <div class="special">
+              <p>
+                Rp. <?php echo $produk['harga']; ?>
+              </p>
+            </div>
+          <a href="https://wa.me/6287838137197?text=Halo%2C%20admin.%0ASaya%20ingin%20memesan%20produk%20<?php echo $produk['nama']; ?>%20(ID%20<?php echo $produk['id']; ?>)" class="cta"> Order via WhatsApp</a>
+        </div> 
+      </div>       
+    </section>
 
     <!-- Footer start -->
 
